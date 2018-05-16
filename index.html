@@ -6,5 +6,101 @@
 </head>
 <body>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Mobile</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+</head>
+<body>
+
+
+
+<div data-role="page" id="page1">
+
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#page1">One</a></li>
+            <li><a href="#page2">Two</a></li>
+            <li><a href="#page3">Three</a></li>
+        </ul>
+    </div>
+
+    <div data-role="header">
+        <h2>Are you sure?</h2>
+    </div>
+    <div class="ui-content" role="main">
+        <h2>Are you sure you wish to exit the application?</h2>
+        <p>You have unsaved changes. If you exit without saving them, you will lose them.</p>
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <a href="#page2" id="exit-button" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Exit</a>
+            </div>
+            <div class="ui-block-b">
+                <a href="#" id="cancel-button" class="ui-btn ui-shadow ui-corner-all">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="page2">
+
+
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#page1">One</a></li>
+            <li><a href="#page2">Two</a></li>
+            <li><a href="#page3">Three</a></li>
+        </ul>
+    </div>
+
+
+    <fieldset data-role="controlgroup"  data-type="horizontal">
+        <legend>Choose a pet:</legend>
+        <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" checked="checked" />
+        <label for="radio-choice-1">Cat</label>
+
+        <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2"  />
+        <label for="radio-choice-2">Dog</label>
+
+        <input type="radio" name="radio-choice" id="radio-choice-3" value="choice-3"  />
+        <label for="radio-choice-3">Hamster</label>
+
+        <input type="radio" name="radio-choice" id="radio-choice-4" value="choice-4"  />
+        <label for="radio-choice-4">Lizard</label>
+    </fieldset>
+
+
+    <a href="#page1">back home</a>
+
+
+</div>
+
+<div data-role="page" id="page3">
+
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#page1">One</a></li>
+            <li><a href="#page2">Two</a></li>
+            <li><a href="#page3">Three</a></li>
+        </ul>
+    </div>
+
+
+    I'm page 3!
+
+</div>
+
+
+
+</body>
+</html>
+
 </body>
 </html>
