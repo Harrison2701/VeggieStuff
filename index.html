@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bìu tổ vật</title>
+    <title>Veggie Gang</title>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -16,7 +16,7 @@
 
     <div data-role="navbar">
         <ul>
-            <li><a href="#page1">One</a></li>
+            <li><a href="#page1">one</a></li>
             <li><a href="#page2">Two</a></li>
             <li><a href="#page3">Three</a></li>
         </ul>
@@ -26,6 +26,15 @@
         <h2>Are you sure?</h2>
     </div>
     <div class="ui-content" role="main">
+        <form action="/action_page.php">
+            First name:<br>
+            <input type="text" name="firstname" placeholder="First name">
+            <br>
+            Last name:<br>
+            <input type="text" name="lastname" placeholder="Last name">
+            <br><br>
+            <input type="submit" value="Enter">
+        </form>
         <h2>Are you sure you wish to exit the application?</h2>
         <p>You have unsaved changes. If you exit without saving them, you will lose them.</p>
         <div class="ui-grid-a">
@@ -78,7 +87,7 @@
 </div>
 
 
-<!--CHRIS'S PAGE-->
+ <!--CHRIS'S PAGE-->
 <div data-role="page" id="page3">
 
     <div data-role="navbar">
