@@ -13,7 +13,7 @@ $(document).ready(function() {
                     }),
                     dataType: 'json',
                     success: function (data) {
-                        runMySuccessFunction(data);
+                        return;
                     },
                     error: function () {
                         alert("failed");
