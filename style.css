@@ -7,3 +7,7 @@ p {
     font-family: "Abadi MT Condensed Extra Bold";
     font-size: 25px;
 }
+
+table {
+    margin: 20px;
+}
