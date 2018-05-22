@@ -1,28 +1,13 @@
 p {
     font-family: "Abadi MT Condensed Extra Bold";
     font-size: 50px;
-    position: relative;
-    left: 3%;
 }
-#loginEmail {
-    height: 100px;
-    font-size: 40px;
-    font-family: "Abadi MT Condensed Extra Bold";
-    font-color: black;
-}
-#loginPassword{
-    height: 100px;
-    font-size: 40px;
-    font-family: "Abadi MT Condensed Extra Bold";
-    font-color: black;
-}
-#submit-button{
 
+#title1{
+    font-family: "Abadi MT Condensed Extra Bold";
+    font-size: 25px;
 }
-#signup-button{
-    position:relative;
-    left: 14%;
-}
-h2{
-    font-size: 40px;
+
+table {
+    margin: 20px;
 }
