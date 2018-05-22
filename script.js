@@ -1,28 +1,30 @@
-$( document ).ready(function() {
+$(document).ready(function() {
     var userInformation = {};
 
+    $("#signuphere-button").on("click", function() {
 
-    function SignUpUser() {
-        if ($('#signupPassword').val() == $('#confirmsignupPassword').val()) {
-            $.ajax({
-                type: 'POST',
-                contentType: 'json',
-                data: JSON.stringify({
-                    "email": $('#signUpEmail').val(),
-                    "password": $('#signUpPassword').val()
-                }),
-                dataType: 'json',
-                success: function (data) {
-                    runMySuccessFunction(data);
-                },
-                error: function () {
-                    alert("failed");
-                },
-                url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
-            });
-        }
-    }
+            if ($('#signupPassword').val() == $('#confirmsignupPassword').val()) {
+                $.ajax({
+                    type: 'POST',
+                    contentType: 'json',
+                    data: JSON.stringify({
+                        "email": $('#signUpEmail').val(),
+                        "password": $('#signUpPassword').val()
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        runMySuccessFunction(data);
+                    },
+                    error: function () {
+                        alert("failed");
+                    },
+                    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
+                });
+            }else{
+                return 'hiu';
+            }
 
+    });
 
     function LoginUser() {
 
