@@ -2,19 +2,20 @@ $(document).ready(function() {
     var userInformation = {};
 
     $("#signuphere-button").on("click", function() {
-return 'eys';
+            console.log('eyes');
             if($('#signupPassword').val() == $('#confirmsignupPassword').val()) {
+                var email=$('#signUpEmail').val();
                 $.ajax({
                     type: 'POST',
                     contentType: 'json',
                     data: JSON.stringify({
-                        "email": $('#signUpEmail').val(),
+                        "email": email,
                         "password": $('#signUpPassword').val(),
-                        "information":{},
+                        "information":{}
                     }),
                     dataType: 'json',
                     success: function (data) {
-                        return;
+                        console.log(data);
                     },
                     error: function () {
                         alert("failed");
