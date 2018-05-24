@@ -2,14 +2,15 @@ $(document).ready(function() {
     var userInformation = {};
 
     $("#signuphere-button").on("click", function() {
-
-            if ($('#signupPassword').val() == $('#confirmsignupPassword').val()) {
+return 'eys';
+            if($('#signupPassword').val() == $('#confirmsignupPassword').val()) {
                 $.ajax({
                     type: 'POST',
                     contentType: 'json',
                     data: JSON.stringify({
                         "email": $('#signUpEmail').val(),
-                        "password": $('#signUpPassword').val()
+                        "password": $('#signUpPassword').val(),
+                        "information":{},
                     }),
                     dataType: 'json',
                     success: function (data) {
