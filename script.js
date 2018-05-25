@@ -6,7 +6,7 @@ $(document).ready(function() {
         var email=document.getElementById('signupEmail').value;
 
         console.log('eyes');
-            if(email==password &&indexOf(){
+            if(email==password &&indexOf()){
                 $.ajax({
                     type: 'POST',
                     contentType: 'json',
@@ -53,7 +53,14 @@ $(document).ready(function() {
 
 });
 
-
+function myFunction() {
+    var x = document.getElementById("loginPassword");
+    if (x.type == "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
 
 
 
