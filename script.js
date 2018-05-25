@@ -20,7 +20,7 @@ $(document).ready(function() {
             if(confirmpassword==password&&realEmail==true){
                 $.ajax({
                     type: 'POST',
-                    contentType: 'json',
+                    contentType: 'application/json',
                     data: JSON.stringify({
                         "email": email,
                         "password": password,
