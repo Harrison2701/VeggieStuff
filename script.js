@@ -8,10 +8,11 @@ $(document).ready(function() {
         var realEmail=false;
 
         for(var i=0;i<domains.length-1;i++){
-            if(){
+            if(email.indexOf(domains[i])==email.length-domains[i].length&&email.length-domains[i].length>0){
                 realEmail=true;
+                console.log(domains[i])
             }
-        };
+        }
 
 
 
