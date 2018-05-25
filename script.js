@@ -3,10 +3,21 @@ $(document).ready(function() {
 
     $("#signuphere-button").on("click", function() {
         var password=document.getElementById('signupPassword').value;
+        var confirmpassword=document.getElementById('confirmsignupPassword').value;
         var email=document.getElementById('signupEmail').value;
+        var realEmail=false;
 
-        console.log('eyes');
-            if(email==password &&indexOf(){
+        for(var i=0;i<domains.length-1;i++){
+            if(){
+                realEmail=true;
+            }
+        };
+
+
+
+
+
+            if(confirmpassword==password&&realEmail==true){
                 $.ajax({
                     type: 'POST',
                     contentType: 'json',
