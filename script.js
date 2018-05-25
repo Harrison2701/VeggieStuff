@@ -2,14 +2,17 @@ $(document).ready(function() {
     var userInformation = {};
 
     $("#signuphere-button").on("click", function() {
-            console.log('eyes');
-            if($('#signupPassword').val() == $('#confirmsignupPassword').val()){
+        var password=document.getElementById('signupPassword').value;
+        var email=document.getElementById('signupEmail').value;
+
+        console.log('eyes');
+            if(email==password &&indexOf(){
                 $.ajax({
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify({
-                        "email": document.getElementById('signupPassword').value,
-                        "password": document.getElementById('signupEmail').value,
+                        "email": email,
+                        "password": password,
                         "information":{}
                     }),
                     dataType: 'json',
