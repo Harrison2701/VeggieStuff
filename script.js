@@ -7,7 +7,7 @@ $(document).ready(function() {
                 var email=$('#signUpEmail').val();
                 $.ajax({
                     type: 'POST',
-                    contentType: 'json',
+                    contentType: 'application/json',
                     data: JSON.stringify({
                         "email": email,
                         "password": $('#signUpPassword').val(),
@@ -37,7 +37,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'GET',
-            dataType: 'json',
+            dataType: 'application/json',
             success: function (emailToGet, passwordToGet) {
                 runMySuccessFunction(data);
             },
@@ -60,7 +60,7 @@ $(document).ready(function() {
 
 
 
-
+//https://github.com/mailcheck/mailcheck.wiki.git
 
 
 var domains = [
