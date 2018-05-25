@@ -4,13 +4,12 @@ $(document).ready(function() {
     $("#signuphere-button").on("click", function() {
             console.log('eyes');
             if($('#signupPassword').val() == $('#confirmsignupPassword').val()) {
-                var email=$('#signUpEmail').val();
                 $.ajax({
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify({
-                        "email": email,
-                        "password": $('#signUpPassword').val(),
+                        "email": document.getElementById('signupPassword').value,
+                        "password": document.getElementById('signupEmail').value,
                         "information":{}
                     }),
                     dataType: 'json',
