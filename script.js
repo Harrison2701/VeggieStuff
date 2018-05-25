@@ -8,7 +8,7 @@ $(document).ready(function() {
         var realEmail=false;
 
         for(var i=0;i<domains.length-1;i++){
-            if(email.indexOf(domains[i])==email.length-domains[i].length&&email.length-domains[i].length>0){
+            if(email.indexOf('@'+domains[i])==email.length-domains[i].length-1&&email.length-domains[i].length>1){
                 realEmail=true;
                 console.log(domains[i])
             }
