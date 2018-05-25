@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     $("#signuphere-button").on("click", function() {
             console.log('eyes');
-            if($('#signupPassword').val() == $('#confirmsignupPassword').val()) {
+            if($('#signupPassword').val() == $('#confirmsignupPassword').val()){
                 $.ajax({
                     type: 'POST',
                     contentType: 'application/json',
