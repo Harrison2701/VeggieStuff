@@ -3,15 +3,11 @@ p {
     font-size: 350%;
 }
 
-#title1, input,a {
-    font-family: "Comic Sans MS";
+#title1, input{
+    font-family: "Abadi MT Condensed Extra Bold";
     font-size: 300%;
 }
 
 table{
     margin: 50px;
-}
-#selectBox1, #selectBox2{
-    font-size: x-large;
-    font-family: "Al Nile";
 }

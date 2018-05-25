@@ -6,7 +6,7 @@ $(document).ready(function() {
             if($('#signupPassword').val() == $('#confirmsignupPassword').val()){
                 $.ajax({
                     type: 'POST',
-                    contentType: 'application/json',
+                    contentType: 'json',
                     data: JSON.stringify({
                         "email": document.getElementById('signupPassword').value,
                         "password": document.getElementById('signupEmail').value,
@@ -36,7 +36,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'GET',
-            dataType: 'application/json',
+            dataType: 'json',
             success: function (emailToGet, passwordToGet) {
                 runMySuccessFunction(data);
             },
@@ -59,7 +59,8 @@ $(document).ready(function() {
 
 
 
-//https://github.com/mailcheck/mailcheck.wiki.git
+
+
 
 
 var domains = [
