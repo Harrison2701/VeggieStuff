@@ -14,6 +14,8 @@ $(document).ready(function() {
             }
         }
 
+//
+
 
 
             if(confirmpassword==password&&realEmail==true){
@@ -35,7 +37,7 @@ $(document).ready(function() {
                     url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
                 });
             }else{
-                return 'hiu';
+                return  'hiu';
             }
 
     });
@@ -49,7 +51,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'GET',
-            dataType: 'json',
+            dataType: 'application/json',
             success: function (emailToGet, passwordToGet) {
                 runMySuccessFunction(data);
             },
@@ -63,12 +65,6 @@ $(document).ready(function() {
 
 });
 
-function addMeat(){
-    var meat = document.getElementById("selectBox1").value;
-    var quantity = document.getElementById("selectBox2").value;
-    var amount = "oz"
-    document.getElementById("listMeat").innerHTML += '<p>' + meat + " " + quantity + amount + '</p>'
-}
 
 
 
