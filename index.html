@@ -26,8 +26,9 @@
             <p>Email:</p>
             <input type="text" id="loginEmail" placeholder="Email">
             <p>Password:</p><br>
-            <input type="text" id="loginPassword" placeholder="Password">
-            <br><br>
+            <input type="password" placeholder="Password"  id="loginPassword">
+            <br><p>Show Password</p><input type="checkbox" onclick="myFunction()">
+            <br>
             <div class="ui-block-a">
                 <a href="#page3" id="submit-button" onclick="LoginUser()" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Submit</a>
             </div>
@@ -39,6 +40,7 @@
     <div class="ui-block-a">
         <a href="#page2" id="signup-button" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Sign Up</a>
     </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Cow_female_black_white.jpg" width="1000" height="500">
 
 </div>
 
@@ -54,46 +56,56 @@
     </div>
 
     <form action="/action_page.php">
-        Email:<br>
+        <p>Email:</p><br>
         <input type="text" id="signupEmail" placeholder="Email">
         <br>
-        Password:<br>
+        <p>Password:</p><br>
         <input type="text" id="signupPassword" placeholder="Password">
         <br><br>
-        Confirm Password:<br>
+        <p>Confirm Password:</p><br>
         <input type="text" id="confirmsignupPassword" placeholder="Password">
         <br><br>
         <div class="ui-block-a">
-            <a href="#page1" id="signuphere-button" onclick="SignUpUser()" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Sign Up</a>
+            <a href="#page1" id="signuphere-button" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Sign Up</a>
         </div>
     </form>
 </div>
 
 
 <div data-role="page" id="page3">
+
     <div id="title1">Find better alternatives to what you eat</div>
     <input type="search" id="searchFood" placeholder="Food">
+    <p id="text1">How much meat did you eat today?</p>
     <table id="table1">
         <tr>
             <td>Meat
                 <select id="selectBox1">
-                    <option value=9>9</option>
-                    <option value=10>10</option>
-                    <option value=11>11</option>
-                    <option value=12>12</option>
+                    <option value="Pork">Pork</option>
+                    <option value="Poultry">Poultry</option>
+                    <option value="Beef">Beef</option>
                 </select>
-            <td>Quantity (lb)
+            <td>Quantity (0z)
                 <select id="selectBox2">
-                    <option value=9>9</option>
+                    <option value=5>5</option>
                     <option value=10>10</option>
-                    <option value=11>11</option>
-                    <option value=12>12</option>
+                    <option value=15>15</option>
+                    <option value=20>20</option>
+                    <option value=25>25</option>
                 </select>
+            <td/>
         </tr>
     </table>
+
+    <button type="button" id = "addMeatButton" onclick="addMeat()"class="ui-btn ui-btn-b ui-shadow ui-corner-all">Add meat</button>
+
+    <div id="listMeat">
+
+    </div>
+
     <a href="#page1">Log Out</a>
 </div>
 
-
 </body>
 </html>
+
