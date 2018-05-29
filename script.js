@@ -17,7 +17,10 @@ $(document).ready(function() {
             alert("Are you sure that this is a real email?")
         }
 
-        if(email.lastIndexOf('.')>email.length-2&&email.indexOf('@')!=-1){
+        console.log(email.lastIndexOf('.'));
+        console.log(email.length-4);
+
+        if(email.lastIndexOf('.')>email.length-5&&email.indexOf('@')!=-1){
                 realEmail=true;
         }
 
@@ -43,7 +46,7 @@ $(document).ready(function() {
                     url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
                 });
             }else{
-                return  'hiu';
+                console.log('no');
             }
 
     });
