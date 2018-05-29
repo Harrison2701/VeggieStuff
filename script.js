@@ -10,11 +10,17 @@ $(document).ready(function() {
         for(var i=0;i<domains.length-1;i++){
             if(email.indexOf('@'+domains[i])==email.length-domains[i].length-1&&email.length-domains[i].length>1){
                 realEmail=true;
-                console.log(domains[i])
             }
         }
 
-//
+        if(realEmail==false){
+            alert("Are you sure that this is a real email?")
+        }
+
+        if(email.lastIndexOf('.')>email.length-2&&email.indexOf('@')!=-1){
+                realEmail=true;
+        }
+
 
 
 
