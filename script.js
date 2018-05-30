@@ -14,7 +14,9 @@ $(document).ready(function() {
         }
 
         if(realEmail==false){
-            alert("Are you sure that this is a real email?")
+            if(confirm("Are you sure that "+email+" is a real email?")==false){
+                return;
+            }
         }
 
         console.log(email.lastIndexOf('.'));
