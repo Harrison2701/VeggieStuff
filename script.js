@@ -24,6 +24,8 @@ $(document).ready(function() {
         if(realEmail==false){
             if(confirm("Are you sure that "+email+" is a real email?")==false){
                 return;
+            }else{
+                realEmail=true;
             }
         }
 
