@@ -6,6 +6,6 @@ function addMeat(){
     document.getElementById("listMeat").innerHTML += '<p>' + meat + " " + quantity + amount + '</p>'
 }
 
-function calculateMeat(){
-
+function calculateMeat(x,y){
+    
 }
