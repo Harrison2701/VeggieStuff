@@ -41,6 +41,7 @@ $(document).ready(function() {
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
+                        document.location.href= "#page1"
                     },
                     error: function () {
                         alert("failed");
