@@ -13,19 +13,19 @@ $(document).ready(function() {
             }
         }
 
+
+        if(email.lastIndexOf('.')<email.length-5||email.indexOf('@')==-1){
+                realEmail=false;
+                return;
+                //function error
+        }
+
+
         if(realEmail==false){
             if(confirm("Are you sure that "+email+" is a real email?")==false){
                 return;
             }
         }
-
-        console.log(email.lastIndexOf('.'));
-        console.log(email.length-4);
-
-        if(email.lastIndexOf('.')>email.length-5&&email.indexOf('@')!=-1){
-                realEmail=true;
-        }
-
 
 
 
