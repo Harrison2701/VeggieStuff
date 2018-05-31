@@ -45,11 +45,14 @@ $(document).ready(function() {
                     error: function () {
                         alert("failed");
                     },
-                    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
-                });
+                    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users',
+
+            });
+                document.getElementById("passwordcheck").innerHTML = "Sign Up Successful";
+
             }else{
                 console.log('no');
-                document.getElementById()
+                document.getElementById("passwordcheck").innerHTML = "Password does not match";
             }
 
     });
