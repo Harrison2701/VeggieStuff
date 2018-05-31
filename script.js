@@ -13,14 +13,21 @@ $(document).ready(function() {
             }
         }
 
+
+        if(email.lastIndexOf('.')<email.length-5||email.indexOf('@')==-1){
+                realEmail=false;
+                return;
+                //function error
+        }
+
+
         if(realEmail==false){
-            alert("Are you sure that this is a real email?")
-        }
-
-        if(email.lastIndexOf('.')>email.length-2&&email.indexOf('@')!=-1){
+            if(confirm("Are you sure that "+email+" is a real email?")==false){
+                return;
+            }else{
                 realEmail=true;
+            }
         }
-
 
 
 
@@ -36,6 +43,7 @@ $(document).ready(function() {
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
+                        document.location.href= "#page1"
                     },
                     error: function () {
                         alert("failed");
@@ -43,7 +51,7 @@ $(document).ready(function() {
                     url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
                 });
             }else{
-                return  'hiu';
+                console.log('no');
             }
 
     });
@@ -71,8 +79,12 @@ $(document).ready(function() {
 
 });
 
-
-
+function addMeat(){
+    var meat = document.getElementById("selectBox1").value;
+    var quantity = document.getElementById("selectBox2").value;
+    var amount = "oz";
+    document.getElementById("listMeat").innerHTML += '<p>' + meat + " " + quantity + amount + '</p>'
+}
 
 
 function myFunction() {
