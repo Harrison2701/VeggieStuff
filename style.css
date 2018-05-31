@@ -3,11 +3,15 @@ p {
     font-size: 350%;
 }
 
-#title1, input{
+#title1, input,a{
     font-family: "Abadi MT Condensed Extra Bold";
     font-size: 300%;
 }
 
 table{
     margin: 50px;
+}
+#title2{
+    font-family: "Comic Sans MS";
+    font-size: 300%;
 }

@@ -66,10 +66,11 @@
         <input type="text" id="confirmsignupPassword" placeholder="Password">
         <br><br>
         <div class="ui-block-a">
-            <a href="#page1" id="signuphere-button" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Sign Up</a>
+            <a id="signuphere-button" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Sign Up</a>
         </div>
     </form>
 </div>
+
 
 
 <div data-role="page" id="page3">
@@ -85,7 +86,7 @@
                     <option value="Poultry">Poultry</option>
                     <option value="Beef">Beef</option>
                 </select>
-            <td>Quantity (0z)
+           Quantity (0z)
                 <select id="selectBox2">
                     <option value=5>5</option>
                     <option value=10>10</option>
@@ -93,10 +94,9 @@
                     <option value=20>20</option>
                     <option value=25>25</option>
                 </select>
-            <td/>
+            </td>>
         </tr>
     </table>
-
     <button type="button" id = "addMeatButton" onclick="addMeat()"class="ui-btn ui-btn-b ui-shadow ui-corner-all">Add meat</button>
 
     <div id="listMeat">
@@ -106,6 +106,15 @@
     <button type="button" id="calculateMeat" onclick="calculateMeat()"class="ui-btn ui-btn-b ui-shadow ui-corner-all">Calculate</button>
 
     <a href="#page1">Log Out</a>
+   <br> <a href="#page4">To Homepage</a>
+
+</div>
+
+<div data-role="page" id="page4">
+    <div id="title2">Welcome to Beet Your Meat Goals</div>
+    <a href="#page1">Log Out</a>
+
+
 </div>
 
 </body>
