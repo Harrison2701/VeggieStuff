@@ -56,28 +56,34 @@ $(document).ready(function() {
 
     });
 
-    function LoginUser() {
+    function LoginUser(){
 
-        //if password matches the one from the management systems{
 
-        var emailToGet = $('#loginEmail').val();
-        var passwordToGet = $('#loginPassword').val();
+
+      //  var emailToGet = $('#loginEmail').val();
+      //  var passwordToGet = $('#loginPassword').val();
+
+
 
         $.ajax({
             type: 'GET',
             dataType: 'application/json',
-            success: function (emailToGet, passwordToGet) {
-                runMySuccessFunction(data);
+            success: function (data) {
+                console.log(data);
+                //runMySuccessFunction(data);
+                //if password matches the one from the management systems{}
+                // if(data.){
+                //     return;
+                // }
             },
             error: function () {
-                alert("failed");
+                alert("Sorry, but something went wrong!");
             },
             url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + emailToGet
         });
-//} if password matches
     }
 
-});
+
 
 function addMeat(){
     var meat = document.getElementById("selectBox1").value;
@@ -151,3 +157,4 @@ var domains = [
     /* Domains used in Brazil */
     "yahoo.com.br", "hotmail.com.br", "outlook.com.br", "uol.com.br", "bol.com.br", "terra.com.br", "ig.com.br", "itelefonica.com.br", "r7.com", "zipmail.com.br", "globo.com", "globomail.com", "oi.com.br"
 ];
+});
