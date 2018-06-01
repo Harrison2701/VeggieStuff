@@ -72,7 +72,11 @@ function LoginUser() {
         success: function (data) {
             //runMySuccessFunction(data);
             console.log(data);
-          //  if(data.password=)
+            if(data.password==passwordToGet){
+                correctInformation=true;
+                document.location.href = '#page4';
+                currentUser=data;
+            }
         },
         error: function () {
             alert("failed");
