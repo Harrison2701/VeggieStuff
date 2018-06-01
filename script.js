@@ -2,9 +2,9 @@ $(document).ready(function() {
     var userInformation = {};
 
     $("#signuphere-button").on("click", function() {
-        var password=document.getElementById('signupPassword').value;
-        var confirmpassword=document.getElementById('confirmsignupPassword').value;
-        var email=document.getElementById('signupEmail').value;
+        var password = document.getElementById('signupPassword').value;
+        var confirmpassword = document.getElementById('confirmsignupPassword').value;
+        var email = document.getElementById('signupEmail').value;
         var realEmail=false;
 
         for(var i=0;i<domains.length-1;i++){
@@ -52,6 +52,10 @@ $(document).ready(function() {
 
             }else{
                 console.log('no');
+                if(confirmpassword === ''){
+                   alert("Enter a fucking password.");
+
+                }
                 document.getElementById("passwordcheck").innerHTML = "Password does not match";
             }
 
