@@ -45,11 +45,14 @@ $(document).ready(function() {
                     error: function () {
                         alert("failed");
                     },
-                    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
-                });
+                    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users',
+
+            });
+                document.getElementById("passwordcheck").innerHTML = "Sign Up Successful";
+
             }else{
                 console.log('no');
-                document.getElementById()
+                document.getElementById("passwordcheck").innerHTML = "Password does not match";
             }
 
     });
@@ -119,9 +122,15 @@ function calculateMeat(){
         beef += meatsBeef[k].total
     }
 
+    var poultryLB = poultry/16
+    var beefLB = beef/16
+    var porkLB = pork/16
+
     console.log(pork)
     console.log(poultry)
     console.log(beef)
+
+    console.log(porkLB)
 }
 
 
