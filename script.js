@@ -109,6 +109,8 @@ function calculateMeat(){
     var beef = 0;
     var pork = 0;
 
+    
+
     for(var i=0;i<meatsPork.length;i++){
         pork += meatsPork[i].total
     }
