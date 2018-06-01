@@ -11,3 +11,8 @@ p {
 table{
     margin: 50px;
 }
+#title2{
+    position: center;
+    font-family: "Comic Sans MS";
+    font-size: 300%;
+}
