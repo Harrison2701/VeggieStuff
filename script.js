@@ -122,13 +122,13 @@ function calculateMeat(){
         beef += meatsBeef[k].total
     }
 
-    var poultryLB = poultry/16
-    var beefLB = beef/16
-    var porkLB = pork/16
+    var poultryLB = poultry/16;
+    var beefLB = beef/16;
+    var porkLB = pork/16;
 
-    console.log(pork)
-    console.log(poultry)
-    console.log(beef)
+    console.log(pork);
+    console.log(poultry);
+    console.log(beef);
 
     console.log(porkLB)
 }
