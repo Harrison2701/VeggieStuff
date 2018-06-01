@@ -61,20 +61,21 @@ function LoginUser() {
 
     var emailToGet = $('#loginEmail').val();
     var passwordToGet = $('#loginPassword').val();
+    var correctInformation=false;
 
     $.ajax({
         type: 'GET',
-        dataType: 'application/json',
-        success: function (emailToGet, passwordToGet) {
-            runMySuccessFunction(data);
+        dataType: 'json',
+        success: function (data) {
+            //runMySuccessFunction(data);
             console.log(data);
+          //  if(data.password=)
         },
         error: function () {
             alert("failed");
         },
         url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + emailToGet
     });
-    console.log(data);
 //} if password matches
 }
 
