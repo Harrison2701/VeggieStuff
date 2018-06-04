@@ -6,13 +6,16 @@ $(document).ready(function() {
         var confirmpassword = document.getElementById('confirmsignupPassword').value;
         var email = document.getElementById('signupEmail').value;
         var realEmail=false;
+        var newEmail=false;
 
+        //Checks for traditional emails
         for(var i=0;i<domains.length-1;i++){
             if(email.indexOf('@'+domains[i])==email.length-domains[i].length-1&&email.length-domains[i].length>1){
                 realEmail=true;
             }
         }
 
+        //Confirmation for weird emails
         if(realEmail==false){
             if(confirm("Are you sure that "+email+" is a real email?")==false){
                 return;
@@ -22,14 +25,16 @@ $(document).ready(function() {
         console.log(email.lastIndexOf('.'));
         console.log(email.length-4);
 
+        //Checks emails that aren't traditional
         if(email.lastIndexOf('.')>email.length-5&&email.indexOf('@')!=-1){
                 realEmail=true;
         }
 
+        //Checks to see if email is a new one
 
 
-
-            if(confirmpassword==password&&realEmail==true){
+            //Sign-up
+            if(confirmpassword == password && realEmail == true && newEmail == true){
                 $.ajax({
                     type: 'POST',
                     contentType: 'application/json',
@@ -45,18 +50,21 @@ $(document).ready(function() {
                     error: function () {
                         alert("failed");
                     },
-                    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users',
+                    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
 
             });
                 document.getElementById("passwordcheck").innerHTML = "Sign Up Successful";
 
             }else{
                 console.log('no');
-                if(confirmpassword === ''){
-                   alert("Enter a fucking password.");
+                    if(confirmpassword === "" || password === ""){
+                        alert("Enter a DAMN password.");
+                    }
 
-                }
-                document.getElementById("passwordcheck").innerHTML = "Password does not match";
+
+
+
+
             }
 
     });
@@ -70,12 +78,12 @@ function LoginUser() {
     var passwordToGet = $('#loginPassword').val();
     var correctInformation=false;
 
+    //Login
     $.ajax({
         type: 'GET',
         dataType: 'json',
         success: function (data) {
-            //runMySuccessFunction(data);
-            console.log(data);
+            console.log(data.information);
             if(data.password==passwordToGet){
                 correctInformation=true;
                 document.location.href = '#page4';
@@ -87,7 +95,6 @@ function LoginUser() {
         },
         url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + emailToGet
     });
-//} if password matches
 }
 
 
@@ -109,9 +116,9 @@ function addMeat(){
     }
 }
 
-var meatsPork = []
-var meatsPoultry = []
-var meatsBeef = []
+var meatsPork = [];
+var meatsPoultry = [];
+var meatsBeef = [];
 
 function calculateMeat(){
     var poultry = 0;
@@ -128,9 +135,9 @@ function calculateMeat(){
         beef += meatsBeef[k].total
     }
 
-    var poultryLB = poultry/16
-    var beefLB = beef/16
-    var porkLB = pork/16
+    var poultryLB = poultry/16;
+    var beefLB = beef/16;
+    var porkLB = pork/16;
 
     document.location.href = "#page4";
     listConsumptions(pork,beef,poultry)
@@ -152,7 +159,7 @@ function listConsumptions(x,y,z){
     document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + totalWater + " and your total CO2 consumptions is " + totalCO2 +'</p>'
 }
 
-function myFunction() {
+function showPassword() {
     var x = document.getElementById("loginPassword");
     if (x.type == "password") {
         x.type = "text";
