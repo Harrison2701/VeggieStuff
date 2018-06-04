@@ -1,4 +1,4 @@
-function addMeat(){
+/*function addMeat(){
     var meat = document.getElementById("selectBox1").value;
     var amount = document.getElementById("selectBox2").value;
     var oz = "oz"

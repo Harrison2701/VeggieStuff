@@ -6,13 +6,16 @@ $(document).ready(function() {
         var confirmpassword = document.getElementById('confirmsignupPassword').value;
         var email = document.getElementById('signupEmail').value;
         var realEmail=false;
+        var newEmail=false;
 
+        //Checks for traditional emails
         for(var i=0;i<domains.length-1;i++){
             if(email.indexOf('@'+domains[i])==email.length-domains[i].length-1&&email.length-domains[i].length>1){
                 realEmail=true;
             }
         }
 
+        //Confirmation for weird emails
         if(realEmail==false){
             if(confirm("Are you sure that "+email+" is a real email?")==false){
                 return;
@@ -22,14 +25,16 @@ $(document).ready(function() {
         console.log(email.lastIndexOf('.'));
         console.log(email.length-4);
 
+        //Checks emails that aren't traditional
         if(email.lastIndexOf('.')>email.length-5&&email.indexOf('@')!=-1){
                 realEmail=true;
         }
 
+        //Checks to see if email is a new one
 
 
-
-            if(confirmpassword==password&&realEmail==true){
+            //Sign-up
+            if(confirmpassword==password&&realEmail==true&&newEmail==true){
                 $.ajax({
                     type: 'POST',
                     contentType: 'application/json',
@@ -70,11 +75,11 @@ function LoginUser() {
     var passwordToGet = $('#loginPassword').val();
     var correctInformation=false;
 
+    //Login
     $.ajax({
         type: 'GET',
         dataType: 'json',
         success: function (data) {
-            //runMySuccessFunction(data);
             console.log(data);
             if(data.password==passwordToGet){
                 correctInformation=true;
@@ -87,7 +92,6 @@ function LoginUser() {
         },
         url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + emailToGet
     });
-//} if password matches
 }
 
 
@@ -138,7 +142,7 @@ function calculateMeat(){
 }
 
 
-function myFunction() {
+function showPassword() {
     var x = document.getElementById("loginPassword");
     if (x.type == "password") {
         x.type = "text";
