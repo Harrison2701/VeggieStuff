@@ -34,7 +34,7 @@ $(document).ready(function() {
 
 
             //Sign-up
-            if(confirmpassword==password&&realEmail==true&&newEmail==true){
+            if(confirmpassword == password && realEmail == true && newEmail == true){
                 $.ajax({
                     type: 'POST',
                     contentType: 'application/json',
@@ -50,18 +50,21 @@ $(document).ready(function() {
                     error: function () {
                         alert("failed");
                     },
-                    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users',
+                    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
 
             });
                 document.getElementById("passwordcheck").innerHTML = "Sign Up Successful";
 
             }else{
                 console.log('no');
-                if(confirmpassword === ''){
-                   alert("Enter a fucking password.");
+                    if(confirmpassword === "" || password === ""){
+                        alert("Enter a DAMN password.");
+                    }
 
-                }
-                document.getElementById("passwordcheck").innerHTML = "Password does not match";
+
+
+
+
             }
 
     });
@@ -113,9 +116,9 @@ function addMeat(){
     }
 }
 
-var meatsPork = []
-var meatsPoultry = []
-var meatsBeef = []
+var meatsPork = [];
+var meatsPoultry = [];
+var meatsBeef = [];
 
 function calculateMeat(){
     var poultry = 0;
@@ -134,9 +137,9 @@ function calculateMeat(){
         beef += meatsBeef[k].total
     }
 
-    var poultryLB = poultry/16
-    var beefLB = beef/16
-    var porkLB = pork/16
+    var poultryLB = poultry/16;
+    var beefLB = beef/16;
+    var porkLB = pork/16;
 
     document.location.href = "#page4"
 }
