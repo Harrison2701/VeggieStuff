@@ -7,7 +7,10 @@ p {
     font-family: "Abadi MT Condensed Extra Bold";
     font-size: 300%;
 }
-
+#passwordcheck{
+    font-family: "Comic Sans MS";
+    font-size: 300%;
+}
 table{
     margin: 50px;
 }
