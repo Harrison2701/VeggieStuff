@@ -80,7 +80,7 @@ function LoginUser() {
         type: 'GET',
         dataType: 'json',
         success: function (data) {
-            console.log(data);
+            console.log(data.information);
             if(data.password==passwordToGet){
                 correctInformation=true;
                 document.location.href = '#page4';
