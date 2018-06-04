@@ -41,7 +41,11 @@ $(document).ready(function() {
                     data: JSON.stringify({
                         "email": email,
                         "password": password,
-                        "information":{}
+                        "information":{
+                            waterConsumed:[],
+                            co2Consumed:[],
+                            dateAccountWasCreate:[getDate(),getMonth(),getYear()]
+                        }
                     }),
                     dataType: 'json',
                     success: function (data) {
