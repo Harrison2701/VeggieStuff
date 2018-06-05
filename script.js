@@ -31,9 +31,22 @@ $(document).ready(function() {
         }
 
         //Checks to see if email is a new one
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                return;
+            },
+            error: function () {
+                newEmail=true;
+            },
+            url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + email
+        });
 
 
-            //Sign-up
+
+
+    //Sign-up
             if(confirmpassword == password && realEmail == true && newEmail == true){
                 $.ajax({
                     type: 'POST',
@@ -41,7 +54,11 @@ $(document).ready(function() {
                     data: JSON.stringify({
                         "email": email,
                         "password": password,
-                        "information":{}
+                        "information":{
+                            waterConsumed:[],
+                            co2Consumed:[],
+                            dateAccountWasCreate:[getDate(),getMonth(),getYear()]
+                        }
                     }),
                     dataType: 'json',
                     success: function (data) {
@@ -58,7 +75,20 @@ $(document).ready(function() {
             }else{
                 console.log('no');
                     if(confirmpassword === "" || password === ""){
-                        alert("Enter a DAMN password.");
+                        alert("Enter a DAMN password!");
+                        return;
+                    }
+                    if(confirmpassword!=password){
+                        alert("Your passwords do not match")
+                        return;
+                    }
+                    if(realEmail==false){
+                        alert("Sorry, but we do not recognize this email!")
+                        return;
+                    }
+                    if(newEmail==false){
+                        alert("Sorry, this email has already been taken!")
+                        return;
                     }
 
 
