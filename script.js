@@ -103,7 +103,7 @@ function addMeat(){
     var meat = document.getElementById("selectBox1").value;
     var amount = document.getElementById("selectBox2").value;
     var oz = "oz"
-    document.getElementById("listMeat").innerHTML += '<p>' + meat + " " + amount + oz + '</p>'
+    document.getElementById("listMeat").innerHTML += '<p>' + meat + " " + amount + oz + '</p>';
     var amounts = parseInt(amount)
     if(meat == "Pork"){
         meatsPork.push({"meat":meat,"total":amounts})
