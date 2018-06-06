@@ -27,10 +27,10 @@
             <input type="text" id="loginEmail" placeholder="Email">
             <p>Password:</p><br>
             <input type="password" placeholder="Password"  id="loginPassword">
-            <br><p>Show Password</p><input type="checkbox" onclick="showPassword()">
+            <br><p>Show Password</p><input type="checkbox" onclick="myFunction()">
             <br>
             <div class="ui-block-a">
-                <a id="submit-button" onclick="LoginUser()" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Submit</a>
+                <a href="#page3" id="submit-button" onclick="LoginUser()" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Submit</a>
             </div>
         </form>
     </div>
@@ -49,12 +49,13 @@
 
 <div data-role="page" id="page2">
 
-    <a href="#page1">Login page</a>
+    <a href="#page1">Home page</a>
 
     <div data-role="header">
         <h2>Sign Up</h2>
     </div>
-     <form action="/action_page.php">
+
+    <form action="/action_page.php">
         <p>Email:</p><br>
         <input type="text" id="signupEmail" placeholder="Email">
         <br>
@@ -63,7 +64,7 @@
         <br><br>
         <p>Confirm Password:</p><br>
         <input type="text" id="confirmsignupPassword" placeholder="Password">
-        <br><div id="passwordcheck"></div>
+        <br>
         <div class="ui-block-a">
             <a id="signuphere-button" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Sign Up</a>
         </div>
@@ -110,20 +111,13 @@
 
 </div>
 
-<div data-role="page" id="page4" onload="listConsumptions()">
+<div data-role="page" id="page4">
     <div id="title2">Welcome to Beet Your Meat Goals</div>
     <p></p>
-    <a href="#page3">Calculate Your Meat</a>
 
-    <div id="listFoodEaten">
-
-    </div>
-
-    <br><a href="#page1">Log Out</a>
+    <a href="#page1">Log Out</a>
 
 </div>
-
-
 
 </body>
 </html>

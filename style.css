@@ -19,27 +19,3 @@ table{
     font-family: "Comic Sans MS";
     font-size: 300%;
 }
-#showPassword{
-    height: 40px;
-    width: 40px;
-    background-color: green;
-    position: relative;
-    top: -20px;
-}
-#submit-button{
-    height: 40px;
-    width: 330%;
-    text-align: center;
-    font-size: 40px;
-    left: 8%;
-}
-#signup-button{
-    height: 40px;
-    width: 310%;
-    text-align: center;
-    font-size: 40px;
-    left: 14%;
-}
-#signUpMessage{
-    text-align: center;
-}
