@@ -37,8 +37,10 @@ $(document).ready(function() {
             success: function (data) {
                 console.log(data);
                 if(data==null){
+                    console.log(newEmail);
                     newEmail=true;
                     console.log(newEmail);
+                    finishSignUp(password,confirmpassword,email,realEmail,newEmail);
                 }
             },
             error: function () {
@@ -46,65 +48,67 @@ $(document).ready(function() {
             },
             url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + email
         });
-
-
-
-
-
-
-    //Sign-up
-            if(confirmpassword == password && realEmail == true && newEmail == true){
-                $.ajax({
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        "email": email,
-                        "password": password,
-                        "information":{
-                            waterConsumed:[],
-                            co2Consumed:[],
-                            dateAccountWasCreate:new Date()
-                        }
-                    }),
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log(data);
-                    },
-                    error: function () {
-                        alert("failed");
-                    },
-                    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
-
-            });
-                document.getElementById("passwordcheck").innerHTML = "Sign Up Successful";
-
-            }else{
-                console.log('no');
-                    if(confirmpassword === "" || password === ""){
-                        alert("Enter a DAMN password!");
-                        return;
-                    }
-                    if(confirmpassword!=password){
-                        alert("Your passwords do not match")
-                        return;
-                    }
-                    if(realEmail==false){
-                        alert("Sorry, but we do not recognize this email!")
-                        return;
-                    }
-                    if(newEmail==false){
-                        alert("Sorry, this email has already been taken!")
-                        return;
-                    }
-
-
-
-
-
-            }
-
     });
 });
+
+
+
+
+function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
+    //Sign-up
+    if(confirmpassword == password && realEmail == true && newEmail == true){
+        $.ajax({
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                "email": email,
+                "password": password,
+                "information":{
+                    waterConsumed:[],
+                    co2Consumed:[],
+                    dateAccountWasCreate:new Date()
+                }
+            }),
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+            },
+            error: function () {
+                alert("failed");
+            },
+            url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
+
+        });
+        alert("Sign Up successful!")
+
+    }else{
+        console.log(newEmail);
+        if(confirmpassword === "" || password === ""){
+            alert("One or both of the password fields are blank!");
+            return;
+        }
+        if(confirmpassword!=password){
+            alert("Your passwords do not match");
+            return;
+        }
+        if(realEmail==false){
+            alert("Sorry, but we do not recognize this email!");
+            return;
+        }
+        if(newEmail==false){
+            console.log(newEmail);
+            alert("Sorry, this email has already been taken!");
+            return;
+        }
+
+
+
+
+
+    }
+}
+
+
 
 function LoginUser() {
 
