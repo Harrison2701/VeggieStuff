@@ -38,6 +38,7 @@ $(document).ready(function() {
                 console.log(data);
                 if(data==null){
                     newEmail=true;
+                    console.log(newEmail);
                 }
             },
             error: function () {
