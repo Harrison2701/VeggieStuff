@@ -35,10 +35,13 @@ $(document).ready(function() {
             type: 'GET',
             dataType: 'json',
             success: function (data) {
-                return;
+                console.log(data);
+                if(data==null){
+                    newEmail=true;
+                }
             },
             error: function () {
-                newEmail=true;
+                alert("Oops, something went wrong!")
             },
             url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + email
         });
