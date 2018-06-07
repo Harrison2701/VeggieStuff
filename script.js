@@ -56,7 +56,7 @@ $(document).ready(function() {
 
 function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
     //Sign-up
-    if(confirmpassword == password && realEmail == true && newEmail == true){
+    if(confirmpassword == password && realEmail == true && newEmail == true && password==''){
         $.ajax({
             type: 'POST',
             contentType: 'application/json',
@@ -180,7 +180,7 @@ function calculateMeat(){
     var porkLB = pork/16;
 
     document.location.href = "#page4";
-    listConsumptions(pork,beef,poultry)
+    listConsumptions(pork,beef,poultry);
 
     console.log(porkLB)
 }
