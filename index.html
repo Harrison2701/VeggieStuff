@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Beet Your Meat Goals</title>
+    <title>Veggie Gang</title>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -28,10 +28,10 @@
             <input type="text" id="loginEmail" placeholder="Email">
             <p>Password:</p><br>
             <input type="password" placeholder="Password"  id="loginPassword">
-            <br><p>Show Password</p><input type="checkbox" onclick="myFunction()">
+            <br><p>Show Password</p><input type="checkbox" onclick="showPassword()">
             <br>
             <div class="ui-block-a">
-                <a href="#page3" id="submit-button" onclick="LoginUser()" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Submit</a>
+                <a id="submit-button" onclick="LoginUser()" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Submit</a>
             </div>
         </form>
     </div>
@@ -97,7 +97,6 @@
                     <option value=20>20</option>
                     <option value=25>25</option>
                 </select>
-            </td>
         </tr>
     </table>
     <button type="button" id = "addMeatButton" onclick="addMeat()"class="ui-btn ui-btn-b ui-shadow ui-corner-all">Add meat</button>
@@ -116,10 +115,20 @@
 </div>
 
 <div data-role="page" id="page4">
-    <div id="title2">Welcome to Beet Your Meat Goals</div>
-    <p></p>
+    <div id="title2">Welcome To The Veggie Gang App</div>
+    <div id="listFoodEaten"></div>
 
-    <a href="#page1">Log Out</a>
+    <table id="table2">
+        <tr>
+            <td>
+                <a href="#page3">Calculate Your Meat</a>
+            </td>
+            <td>
+                <a href="#page1">Log Out</a>
+            </td>
+        </tr>
+    </table>
+
 
 </div>
 
