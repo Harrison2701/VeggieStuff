@@ -197,7 +197,9 @@ function listConsumptions(x,y,z) {
     var totalCO2 = co2Beef + co2Pork + co2Poultry;
 
     document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + totalWater + " and your total CO2 consumptions is " + totalCO2 + '</p>'
+}
 
+function displayAlternatives(){
 
 }
 
