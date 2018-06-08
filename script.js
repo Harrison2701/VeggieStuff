@@ -56,7 +56,7 @@ $(document).ready(function() {
 
 function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
     //Sign-up
-    if(confirmpassword == password && realEmail == true && newEmail == true){
+    if(confirmpassword == password && realEmail == true && newEmail == true && password==''){
         $.ajax({
             type: 'POST',
             contentType: 'application/json',
@@ -64,9 +64,9 @@ function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
                 "email": email,
                 "password": password,
                 "information":{
-                    waterConsumed:[],
-                    co2Consumed:[],
-                    dateAccountWasCreate:new Date()
+                    //  waterConsumed:[],
+                    // co2Consumed:[],
+                    // dateAccountWasCreate:new Date()
                 }
             }),
             dataType: 'json',
@@ -180,7 +180,7 @@ function calculateMeat(){
     var porkLB = pork/16;
 
     document.location.href = "#page4";
-    listConsumptions(pork,beef,poultry)
+    listConsumptions(pork,beef,poultry);
 
     console.log(porkLB)
 }
@@ -196,8 +196,33 @@ function listConsumptions(x,y,z) {
     var co2Poultry = z * 3.5;
     var totalCO2 = co2Beef + co2Pork + co2Poultry;
 
-    document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + totalWater + " and your total CO2 consumptions is " + totalCO2 + '</p>'
+    document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + totalWater + " and your total CO2 consumptions is " + totalCO2 + '</p>';
 
+
+
+
+    $.ajax({
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            "email": email,
+            "password": password,
+            "information":{
+                waterConsumed:[],
+                co2Consumed:[],
+                dateAccountWasCreate:new Date()
+            }
+        }),
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+        },
+        error: function () {
+            alert("failed");
+        },
+        url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
+
+    });
 
 }
 
