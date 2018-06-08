@@ -57,3 +57,27 @@ function listConsumptions(x,y,z){
 
     document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + totalWater + " and your total CO2 consumptions is " + totalCO2 +'</p>'
 }
+
+var beefAlternatives = ["Seitan Steaks","Tofu Steaks","Mushroom Steaks","Eggplant Steaks","Cauliflower Steaks","Tempeh","Vegan Meat","Lentils","Beans"];
+var poultryAlternatives = ["Tofu Chicken","Jackfruit Chicken","Chickpea Cutlets","Seitan Cutlets","Vegetable Cutlets","Tofu Nuggets","Cauliflower Wings"]
+var porkAlternatives = ["Sun-dried Tomatoes","Fried Shallots","Roasted Mushrooms","Tempeh Bacon","Textured Soy Protein","Tofu","Beans"]
+var alternative = ""
+
+function displayAlternatives(){
+    var alternativeValue = document.getElementById("foodAlternatives").value
+    if( alternativeValue == "steak" || alternativeValue == "roastbeef"){
+        alternative  = beefAlternatives[Math.floor(Math.random() * beefAlternatives.length)]
+        document.getElementById("listALternatives").innerHTML = " "
+        document.getElementById("listALternatives").innerHTML += '<p>' + "A good alternative to this option could be " + alternative + '</p>'
+    }
+    if( alternativeValue == "friedchicken" || alternativeValue == "chickennuggets"){
+        alternative  = poultryAlternatives[Math.floor(Math.random() * poultryAlternatives.length)]
+        document.getElementById("listALternatives").innerHTML = " "
+        document.getElementById("listALternatives").innerHTML += '<p>' + "A good alternative to this option could be " + alternative + '</p>'
+    }
+    if( alternativeValue == "bacon" || alternativeValue == "porkchops"){
+        alternative  = porkAlternatives[Math.floor(Math.random() * porkAlternatives.length)]
+        document.getElementById("listALternatives").innerHTML = " "
+        document.getElementById("listALternatives").innerHTML += '<p>' + "A good alternative to this option could be " + alternative + '</p>'
+    }
+}
