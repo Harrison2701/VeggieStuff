@@ -28,7 +28,7 @@
             <input type="text" id="loginEmail" placeholder="Email">
             <p>Password:</p><br>
             <input type="password" placeholder="Password"  id="loginPassword">
-            <br><p>Show Password</p><input type="checkbox" onclick="showPassword()">
+            <br><p>Show Password</p><input type="checkbox" id ="showPassword" onclick="showPassword()">
             <br>
             <div class="ui-block-a">
                 <a id="submit-button" onclick="LoginUser()" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Submit</a>
@@ -75,9 +75,6 @@
 
 
 <div data-role="page" id="page3">
-
-    <div id="title1">Find better alternatives to what you eat</div>
-    <input type="search" id="searchFood" placeholder="Food">
     <p id="text1">How much meat did you eat today?</p>
     <table id="table1">
         <tr>
@@ -116,6 +113,22 @@
 
 <div data-role="page" id="page4">
     <div id="title2">Welcome To The Veggie Gang App</div>
+
+    <select id="foodAlternatives">
+        <option value="steak">Steak</option>
+        <option value="roastbeef">Roast Beef</option>
+        <option value="friedchicken">Fried Chicken</option>
+        <option value="chickennuggets">Chicken Nuggets</option>
+        <option value="bacon">Bacon</option>
+        <option value="porkchops">Pork Chops</option>
+    </select>
+
+    <button type="button"id="seachFoodAlternatives" onclick="displayAlternatives()" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Find</button>
+
+    <div id="listALternatives">
+
+    </div>
+
     <div id="listFoodEaten"></div>
 
     <table id="table2">

@@ -56,7 +56,7 @@ $(document).ready(function() {
 
 function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
     //Sign-up
-    if(confirmpassword == password && realEmail == true && newEmail == true && password==''){
+    if(confirmpassword == password && realEmail == true && newEmail == true && password!=''){
         $.ajax({
             type: 'POST',
             contentType: 'application/json',
@@ -122,12 +122,13 @@ function LoginUser() {
         type: 'GET',
         dataType: 'json',
         success: function (data) {
-            console.log(data.password);
             if(data.password==passwordToGet){
                 correctInformation=true;
                 document.location.href = '#page4';
                 currentUser=data;
-                currentUserId = data._id;
+                currentPassword=data.password;
+                currentInformation=data.information;
+                currentEmail=data.email;
             }
         },
         error: function () {
@@ -199,6 +200,14 @@ function listConsumptions(x,y,z) {
     document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + totalWater + " and your total CO2 consumptions is " + totalCO2 + '</p>';
 
 
+    var myInfoObj = {
+        waterConsumed:[1,2,3],
+        co2Consumed:[],
+        dateAccountWasCreate:new Date()
+    };
+
+    myInfoObj.waterConsumed.push(4);
+
 
 
     $.ajax({
@@ -207,11 +216,7 @@ function listConsumptions(x,y,z) {
         data: JSON.stringify({
             "email": email,
             "password": password,
-            "information":{
-                waterConsumed:[],
-                co2Consumed:[],
-                dateAccountWasCreate:new Date()
-            }
+            "information": myInfoObj
         }),
         dataType: 'json',
         success: function (data) {

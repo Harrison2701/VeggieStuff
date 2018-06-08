@@ -1,7 +1,3 @@
-/* Page 1 */
-#page1{
-    background-color: cadetblue;
-}
 p {
     font-family: "Abadi MT Condensed Extra Bold";
     font-size: 350%;
@@ -23,20 +19,12 @@ table{
     font-family: "Comic Sans MS";
     font-size: 300%;
 }
-#loginEmail{
-    background-color: darkseagreen;
-}
-#loginPassword{
-    background-color: darkseagreen;
-
-}
 #showPassword{
     height: 40px;
     width: 40px;
+    background-color: green;
     position: relative;
     top: -20px;
-    background-color: darkseagreen;
-
 }
 #submit-button{
     height: 40px;
@@ -55,4 +43,3 @@ table{
 #signUpMessage{
     text-align: center;
 }
-/* Page 3 */
