@@ -198,6 +198,10 @@ function listConsumptions(x,y,z) {
 
     document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + totalWater + " and your total CO2 consumptions is " + totalCO2 + '</p>';
 
+    var today= new Date();
+    var day= today.getDate();
+    var month= today.getMonth()+1;
+    var year= today.getFullYear();
 
 
 
