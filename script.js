@@ -121,14 +121,14 @@ function LoginUser() {
     $.ajax({
         type: 'GET',
         dataType: 'json',
-        success: function (data,password,information,email) {
-            if(password==passwordToGet){
+        success: function (data) {
+            if(data.password==passwordToGet){
                 correctInformation=true;
                 document.location.href = '#page4';
                 currentUser=data;
-                currentPassword=password;
-                currentInformation=information;
-                currentEmail=email;
+                currentPassword=data.password;
+                currentInformation=data.information;
+                currentEmail=data.email;
             }
         },
         error: function () {
