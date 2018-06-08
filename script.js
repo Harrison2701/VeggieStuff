@@ -35,74 +35,83 @@ $(document).ready(function() {
             type: 'GET',
             dataType: 'json',
             success: function (data) {
-                return;
+                console.log(data);
+                if(data==null){
+                    console.log(newEmail);
+                    newEmail=true;
+                    console.log(newEmail);
+                    finishSignUp(password,confirmpassword,email,realEmail,newEmail);
+                }
             },
             error: function () {
-                newEmail=true;
+                alert("Oops, something went wrong!")
             },
             url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + email
         });
-
-
-
-
-    //Sign-up
-            if(confirmpassword == password && realEmail == true && newEmail == true){
-                $.ajax({
-                    type: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({
-                        "email": email,
-                        "password": password,
-                        "information":{
-                            waterConsumed:[],
-                            co2Consumed:[],
-                            dateAccountWasCreate:[getDate(),getMonth(),getYear()]
-                        }
-                    }),
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log(data);
-                    },
-                    error: function () {
-                        alert("failed");
-                    },
-                    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
-
-            });
-                document.getElementById("passwordcheck").innerHTML = "Sign Up Successful";
-
-            }else{
-                console.log('no');
-                    if(confirmpassword === "" || password === ""){
-                        alert("Enter a DAMN password!");
-                        return;
-                    }
-                    if(confirmpassword!=password){
-                        alert("Your passwords do not match")
-                        return;
-                    }
-                    if(realEmail==false){
-                        alert("Sorry, but we do not recognize this email!")
-                        return;
-                    }
-                    if(newEmail==false){
-                        alert("Sorry, this email has already been taken!")
-                        return;
-                    }
-
-
-
-
-
-            }
-
     });
 });
 
+
+
+
+function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
+    //Sign-up
+    if(confirmpassword == password && realEmail == true && newEmail == true && password==''){
+        $.ajax({
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                "email": email,
+                "password": password,
+                "information":{
+                    //  waterConsumed:[],
+                    // co2Consumed:[],
+                    // dateAccountWasCreate:new Date()
+                }
+            }),
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+            },
+            error: function () {
+                alert("failed");
+            },
+            url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
+
+        });
+        alert("Sign Up successful!")
+
+    }else{
+        console.log(newEmail);
+        if(confirmpassword === "" || password === ""){
+            alert("One or both of the password fields are blank!");
+            return;
+        }
+        if(confirmpassword!=password){
+            alert("Your passwords do not match");
+            return;
+        }
+        if(realEmail==false){
+            alert("Sorry, but we do not recognize this email!");
+            return;
+        }
+        if(newEmail==false){
+            console.log(newEmail);
+            alert("Sorry, this email has already been taken!");
+            return;
+        }
+
+
+
+
+
+    }
+}
+
+
+
 function LoginUser() {
 
-    //if password matches the one from the management systems{
 
     var emailToGet = $('#loginEmail').val();
     var passwordToGet = $('#loginPassword').val();
@@ -113,11 +122,12 @@ function LoginUser() {
         type: 'GET',
         dataType: 'json',
         success: function (data) {
-            console.log(data.information);
+            console.log(data.password);
             if(data.password==passwordToGet){
                 correctInformation=true;
                 document.location.href = '#page4';
                 currentUser=data;
+                currentUserId = data._id;
             }
         },
         error: function () {
@@ -132,9 +142,9 @@ function LoginUser() {
 function addMeat(){
     var meat = document.getElementById("selectBox1").value;
     var amount = document.getElementById("selectBox2").value;
-    var oz = "oz"
+    var oz = "oz";
     document.getElementById("listMeat").innerHTML += '<p>' + meat + " " + amount + oz + '</p>'
-    var amounts = parseInt(amount)
+    var amounts = parseInt(amount);
     if(meat == "Pork"){
         meatsPork.push({"meat":meat,"total":amounts})
     }
@@ -170,23 +180,50 @@ function calculateMeat(){
     var porkLB = pork/16;
 
     document.location.href = "#page4";
-    listConsumptions(pork,beef,poultry)
+    listConsumptions(pork,beef,poultry);
 
     console.log(porkLB)
 }
 
-function listConsumptions(x,y,z){
-    var waterBeef = y*1845
-    var waterPork = x*719
-    var waterPoultry = z*515
-    var totalWater = waterBeef+waterPork+waterPoultry
+function listConsumptions(x,y,z) {
+    var waterBeef = y * 1845;
+    var waterPork = x * 719;
+    var waterPoultry = z * 515;
+    var totalWater = waterBeef + waterPork + waterPoultry;
 
-    var co2Beef = y*13.3
-    var co2Pork = x*3.3
-    var co2Poultry = z*3.5
-    var totalCO2 = co2Beef+co2Pork+co2Poultry
+    var co2Beef = y * 13.3;
+    var co2Pork = x * 3.3;
+    var co2Poultry = z * 3.5;
+    var totalCO2 = co2Beef + co2Pork + co2Poultry;
 
-    document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + totalWater + " and your total CO2 consumptions is " + totalCO2 +'</p>'
+    document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + totalWater + " and your total CO2 consumptions is " + totalCO2 + '</p>';
+
+
+
+
+    $.ajax({
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            "email": email,
+            "password": password,
+            "information":{
+                waterConsumed:[],
+                co2Consumed:[],
+                dateAccountWasCreate:new Date()
+            }
+        }),
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+        },
+        error: function () {
+            alert("failed");
+        },
+        url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
+
+    });
+
 }
 
 function showPassword() {
@@ -198,13 +235,54 @@ function showPassword() {
     }
 }
 
+/*post more data to a user
 
 
 
+    $.ajax({
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            "email": email,
+            "password": password,
+            "information":{
+                userId:currentUserId,
+                dataToPost:"dataToPost",
+                datePosted:new Date()
+            }
+        }),
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+        },
+        error: function () {
+            alert("failed");
+        },
+        url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
+
+    });
 
 
+//get info about a user
 
-
+$.ajax({
+    type: 'GET',
+    dataType: 'json',
+    success: function (data) {
+        console.log(data.information);
+        if(data.password==passwordToGet){
+            correctInformation=true;
+            document.location.href = '#page4';
+            currentUser=data;
+            //currentUserId = data._id;
+        }
+    },
+    error: function () {
+        alert("failed");
+    },
+    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + currentUserId
+});
+*/
 
 var domains = [
     /* Default domains included */
