@@ -206,6 +206,7 @@ function listConsumptions(x,y,z) {
     var fullDate="'"+day+","+month+","+year+"'";
 
 
+
     var fullDate = {
         waterConsumed:totalWater,
         co2Consumed:totalCO2,
