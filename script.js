@@ -74,7 +74,7 @@ function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
                 console.log(data);
             },
             error: function () {
-                alert("Failed");
+                alert("failed");
             },
             url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
 
@@ -131,7 +131,7 @@ function LoginUser() {
             }
         },
         error: function () {
-            alert("Failed");
+            alert("failed");
         },
         url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + emailToGet
     });
@@ -222,7 +222,7 @@ function listConsumptions(x,y,z) {
             console.log(data);
         },
         error: function () {
-            alert("Failed");
+            alert("failed");
         },
         url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
 
@@ -284,7 +284,7 @@ function showPassword() {
             console.log(data);
         },
         error: function () {
-            alert("Failed");
+            alert("failed");
         },
         url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
 
@@ -306,7 +306,7 @@ $.ajax({
         }
     },
     error: function () {
-        alert("Failed");
+        alert("failed");
     },
     url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + currentUserId
 });
