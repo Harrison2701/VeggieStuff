@@ -56,7 +56,7 @@ $(document).ready(function() {
 
 function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
     //Sign-up
-    if(confirmpassword == password && realEmail == true && newEmail == true && password!=''){
+    if(confirmpassword == password && realEmail == true && newEmail == true && password==''){
         $.ajax({
             type: 'POST',
             contentType: 'application/json',
@@ -122,13 +122,12 @@ function LoginUser() {
         type: 'GET',
         dataType: 'json',
         success: function (data) {
+            console.log(data.password);
             if(data.password==passwordToGet){
                 correctInformation=true;
                 document.location.href = '#page4';
                 currentUser=data;
-                currentPassword=data.password;
-                currentInformation=data.information;
-                currentEmail=data.email;
+                currentUserId = data._id;
             }
         },
         error: function () {
@@ -203,18 +202,6 @@ function listConsumptions(x,y,z) {
     var day= today.getDate();
     var month= today.getMonth()+1;
     var year= today.getFullYear();
-    var fullDate="'"+day+","+month+","+year+"'";
-
-
-    var fullDate = {
-        waterConsumed:totalWater,
-        co2Consumed:totalCO2,
-        dateAccountWasCreate:new Date()
-    };
-
-
-
-    currentInformation.push(fullDate);
 
 
 
@@ -224,7 +211,11 @@ function listConsumptions(x,y,z) {
         data: JSON.stringify({
             "email": email,
             "password": password,
-            "information": myInfoObj
+            "information":{
+                waterConsumed:[],
+                co2Consumed:[],
+                dateAccountWasCreate:new Date()
+            }
         }),
         dataType: 'json',
         success: function (data) {
@@ -237,6 +228,30 @@ function listConsumptions(x,y,z) {
 
     });
 
+}
+
+var beefAlternatives = ["Seitan Steaks","Tofu Steaks","Mushroom Steaks","Eggplant Steaks","Cauliflower Steaks","Tempeh","Vegan Meat","Lentils","Beans"];
+var poultryAlternatives = ["Tofu Chicken","Jackfruit Chicken","Chickpea Cutlets","Seitan Cutlets","Vegetable Cutlets","Tofu Nuggets","Cauliflower Wings"]
+var porkAlternatives = ["Sun-dried Tomatoes","Fried Shallots","Roasted Mushrooms","Tempeh Bacon","Textured Soy Protein","Tofu","Beans"]
+var alternative = ""
+
+function displayAlternatives(){
+    var alternativeValue = document.getElementById("foodAlternatives").value
+    if( alternativeValue == "steak" || alternativeValue == "roastbeef"){
+        alternative  = beefAlternatives[Math.floor(Math.random() * beefAlternatives.length)]
+        document.getElementById("listALternatives").innerHTML = " "
+        document.getElementById("listALternatives").innerHTML += '<p>' + "A good alternative to this option could be " + alternative + '</p>'
+    }
+    if( alternativeValue == "friedchicken" || alternativeValue == "chickennuggets"){
+        alternative  = poultryAlternatives[Math.floor(Math.random() * poultryAlternatives.length)]
+        document.getElementById("listALternatives").innerHTML = " "
+        document.getElementById("listALternatives").innerHTML += '<p>' + "A good alternative to this option could be " + alternative + '</p>'
+    }
+    if( alternativeValue == "bacon" || alternativeValue == "porkchops"){
+        alternative  = porkAlternatives[Math.floor(Math.random() * porkAlternatives.length)]
+        document.getElementById("listALternatives").innerHTML = " "
+        document.getElementById("listALternatives").innerHTML += '<p>' + "A good alternative to this option could be " + alternative + '</p>'
+    }
 }
 
 function showPassword() {

@@ -6,6 +6,7 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <style></style>
@@ -106,6 +107,8 @@
     <a href="#page1">Log Out</a>
    <br> <a href="#page4">To Homepage</a>
 
+    <a href="#page5"><button class="btn"><i class="fa fa-question mark"></i></button></a>
+
 </div>
 
 <div data-role="page" id="page4">
@@ -133,14 +136,24 @@
             <td>
                 <a href="#page3">Calculate Your Meat</a>
             </td>
-            <td>
+            <br><td>
                 <a href="#page1">Log Out</a>
             </td>
         </tr>
     </table>
-
-
 </div>
+
+<div data-role="page" id="page5">
+    <p>The calculator is designed to show the amount of CO2 emissions and projected water usage needed to produce the meat</p>
+    <ul>
+        <li>Select the type of meat that was consumed and estimate the amount of meat that was eaten.</li>
+        <li>Click the "calculate" button to get the estimated results. </li>
+    </ul>
+    <a href="#page3">Return to Calculator</a>
+</div>
+     <!--button in the middle of the page and there are three buttons. One for week one for month and one for year-->
+
+
 
 </body>
 </html>
