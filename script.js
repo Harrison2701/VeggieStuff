@@ -238,7 +238,7 @@ function listConsumptions(x,y,z) {
     });
 
 }
-//
+
 function showPassword() {
     var x = document.getElementById("loginPassword");
     if (x.type == "password") {
