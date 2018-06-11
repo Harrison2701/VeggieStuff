@@ -2,6 +2,10 @@ p {
     font-family: "Abadi MT Condensed Extra Bold";
     font-size: 350%;
 }
+li {
+    font-family: Nadeem;
+    font-size: 350%;
+}
 
 #title1, input,a{
     font-family: "Abadi MT Condensed Extra Bold";
