@@ -7,6 +7,7 @@ li {
     font-size: 350%;
 }
 
+/* PAGE 1 */
 #title1, input,a{
     font-family: "Abadi MT Condensed Extra Bold";
     font-size: 300%;
@@ -47,3 +48,12 @@ table{
 #signUpMessage{
     text-align: center;
 }
+
+/* PAGE 2 */
+#signuphere-button{
+    height: 40px;
+    width: 340%;
+    font-size: 250%;
+}
+
+
