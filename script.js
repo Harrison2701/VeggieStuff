@@ -74,7 +74,7 @@ function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
                 console.log(data);
             },
             error: function () {
-                alert("Failed");
+                alert("failed");
             },
             url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
 
@@ -131,7 +131,7 @@ function LoginUser() {
             }
         },
         error: function () {
-            alert("Failed");
+            alert("failed");
         },
         url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + emailToGet
     });
@@ -222,7 +222,7 @@ function listConsumptions(x,y,z) {
             console.log(data);
         },
         error: function () {
-            alert("Failed");
+            alert("failed");
         },
         url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
 
@@ -230,9 +230,9 @@ function listConsumptions(x,y,z) {
 
 }
 
-var beefAlternatives = ["Seitan Steaks","Tofu Steaks","Mushroom Steaks","Eggplant Steaks","Cauliflower Steaks","Tempeh","Vegan Meat","Lentils","Beans"];
-var poultryAlternatives = ["Tofu Chicken","Jackfruit Chicken","Chickpea Cutlets","Seitan Cutlets","Vegetable Cutlets","Tofu Nuggets","Cauliflower Wings"]
-var porkAlternatives = ["Sun-dried Tomatoes","Fried Shallots","Roasted Mushrooms","Tempeh Bacon","Textured Soy Protein","Tofu","Beans"]
+var beefAlternatives = ["seitan steaks","tofu steaks","mushroom steaks","eggplant steaks","cauliflower steaks","tempeh","vegan meat","lentils","beans"];
+var poultryAlternatives = ["tofu chicken","jackfruit chicken","chickpea cutlets","seitan cutlets","vegetable cutlets","tofu nuggets","cauliflower wings"]
+var porkAlternatives = ["sun-dried tomatoes","fried shallots","roasted mushrooms","tempeh bacon","textured soy protein","tofu","beans"]
 var alternative = ""
 
 function displayAlternatives(){
@@ -284,7 +284,7 @@ function showPassword() {
             console.log(data);
         },
         error: function () {
-            alert("Failed");
+            alert("failed");
         },
         url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
 
@@ -306,7 +306,7 @@ $.ajax({
         }
     },
     error: function () {
-        alert("Failed");
+        alert("failed");
     },
     url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + currentUserId
 });
