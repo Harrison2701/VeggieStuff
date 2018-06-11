@@ -57,6 +57,7 @@ $(document).ready(function() {
 function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
     //Sign-up
     if(confirmpassword == password && realEmail == true && newEmail == true && password==''){
+        var dateThing=new Date();
         $.ajax({
             type: 'POST',
             contentType: 'application/json',
@@ -64,9 +65,10 @@ function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
                 "email": email,
                 "password": password,
                 "information":{
-                    //  waterConsumed:[],
-                    // co2Consumed:[],
-                    // dateAccountWasCreate:new Date()
+                    "theArray": [],
+                    "startingMonth":d.getMonth(),
+                    "startingYear": d.getFullYear(),
+                    "startingDate":d.getDate(),
                 }
             }),
             dataType: 'json',
@@ -198,10 +200,16 @@ function listConsumptions(x,y,z) {
 
     document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + totalWater + " and your total CO2 consumptions is " + totalCO2 + '</p>';
 
-    var today= new Date();
+   /* var today= new Date();
     var day= today.getDate();
     var month= today.getMonth()+1;
-    var year= today.getFullYear();
+    var year= today.getFullYear();*/
+
+
+
+        var obj = {"totalWater":totalWater, "totalCO2":totalCO2, "date":new Date()};
+        theArray.push(obj);
+
 
 
 
