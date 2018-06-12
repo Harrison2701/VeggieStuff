@@ -56,4 +56,68 @@ table{
     font-size: 250%;
 }
 
+/* PAGE 3 */
 
+#table1{
+    position: relative;
+    width: 90%;
+    font-size: 35px;
+}
+
+#addMeatButton{
+    font-size: 30px;
+}
+#calculateMeat{
+    font-size: 30px;
+}
+
+#questionMark{
+    font-size: 40px;
+}
+
+/* PAGE 4 */
+#foodAlternatives{
+    font-size: 20px;
+
+}
+
+#seachFoodAlternatives{
+    font-size: 30px;
+}
+
+#calcMonth{
+    font-size: 30px;
+}
+
+#calcYear{
+    font-size: 30px;
+}
+
+#calcEverything{
+    font-size: 30px;
+}
+
+#waterGraph{
+    width: 180%;
+    position: relative;
+}
+
+#CO2Graph{
+    position: relative;
+    left: 50%;
+    width: 120%;
+}
+
+/* PAGE 6 */
+
+#tableOfMeat{
+    font-size: 50px;
+    position: relative;
+    left: 4%;
+}
+
+#tableOfAlts{
+    font-size: 50px;
+    position: relative;
+    left: 15%;
+}

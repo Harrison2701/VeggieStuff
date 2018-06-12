@@ -29,7 +29,7 @@
             <input type="text" id="loginEmail" placeholder="Email">
             <p>Password:</p><br>
             <input type="password" placeholder="Password"  id="loginPassword">
-            <br><p>Show Password</p><input type="checkbox" id ="showPassword" onclick="showPassword()">
+            <br><p>Show Password</p><input type="checkbox" onclick="showPassword()">
             <br>
             <div class="ui-block-a">
                 <a id="submit-button" onclick="LoginUser()" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Submit</a>
@@ -108,12 +108,13 @@
     <a href="#page1">Log Out</a>
    <br> <a href="#page4">To Homepage</a>
 
-    <a href="#page5"><button class="btn"><i class="fa fa-question mark"></i></button></a>
+    <a href="#page5"><button id= "questionMark" class="btn"><i class="fa fa-question mark"></i></button></a>
 
 </div>
 
 <div data-role="page" id="page4">
     <div id="title2">Welcome To The Veggie Gang App</div>
+    <a href="#page6"><button class="btn"><i class="fa fa-info-circle"></i></button></a>
 
     <select id="foodAlternatives">
         <option value="steak">Steak</option>
@@ -124,7 +125,7 @@
         <option value="porkchops">Pork Chops</option>
     </select>
 
-    <button type="button"id="seachFoodAlternatives" onclick="displayAlternatives()" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Find</button>
+    <button type="button"id="seachFoodAlternatives" onclick="displayAlternatives()" class="ui-btn ui-btn-b ui-shadow ui-corner-all">Find Alternatives</button>
 
     <div id="listALternatives">
 
@@ -135,18 +136,40 @@
     </div>
 
     <table id="table2">
+        <tr></tr>
+        <tr>
+            <td><button type="button" id= "calcMonth" onclick="theRealCalculate('calcMonth')">Past Month</button></td>
+            <td><button type="button" id= "calcYear" onclick="theRealCalculate('calcYear')">Past Year</button></td>f
+            <td><button type="button" id= "calcEverything" onclick="theRealCalculate('calcEverything')">Since Forever</button></td>
+        </tr>
+        <tr>
+            <td><img id="waterGraph" src="https://caminowordpress-4df7.kxcdn.com/wp-content/uploads/water-bottle.jpg"></td>
+            <td><img id="CO2Graph" src="https://static1.squarespace.com/static/56f9a6d9859fd02e48b33df6/t/5a5046cf9140b76bbf76b41c/1468853577534/CO2+Bubbles.jpg"></td>
+        </tr>
         <tr>
             <td>
                 <a href="#page3">Calculate Your Meat</a>
             </td>
-            <br><td>
-                <a href="#page1">Log Out</a>
+            <td>
+
             </td>
+            <br><td>
+            <a href="#page1">Log Out</a>
+        </td>
         </tr>
     </table>
+
 </div>
 
+
+
 <div data-role="page" id="page5">
+    <p>Version: 1.0.0</p>
+    <p>The goal of this app is provide users with an app to assist in cutting the amount of meat eaten</p>
+    <p>This current version of the app feature a calculator for meat consumption and a drop down menu to find alternatives to your favorite types of meat</p>
+    <ul>
+        <li>In the future, we plan to develop a search mechanic to find the best alternatives for your favorite meats</li>
+    </ul>
     <p>The calculator is designed to show the amount of CO2 emissions and projected water usage needed to produce the meat</p>
     <ul>
         <li>Select the type of meat that was consumed and estimate the amount of meat that was eaten.</li>
@@ -154,10 +177,70 @@
     </ul>
     <a href="#page3">Return to Calculator</a>
 </div>
-     <!--button in the middle of the page and there are three buttons. One for week one for month and one for year-->
+
+<div data-role="page" id="page6">
+    <p>According to the United States Department of Agriculture (USDA), every American consumes more than 260 lbs carcass weight of meat (red meat and poultry) per year.</p>
+    <p>With this consumption level per capita, the Americans are the largest group of meat-consumers in the world.</p>
+    <img src="https://www.blitzresults.com/wp-content/uploads/blitzresults-meat-consumption.png" width="500" height="250">
+    <p>The problem: the consumption of such quantities of meat has a negative impact on the environment and climate.</p>
+    <p><b>High meat consumption has an impact on the climate.</b></p>
+    <p>The clearing of trees and humus degradation causes large amounts of CO2 to escape into the atmosphere. In addition to that, the animal themselves produce climate-damaging gasses such as methane.</p>
+    <p>These are the values that we used to calculate the CO2 and water usage:</p>
+
+    <table id= "tableOfMeat" border=”1” cellspacing=”2” cellpadding=”5” class="table">
+        <tr>
+            <td>    </td>
+            <td>Beef</td>
+            <td>Poultry</td>
+            <td>Pork</td>
+        </tr>
+        <tr>
+            <td>Water Usage</td>
+            <td>1845</td>
+            <td>515</td>
+            <td>719</td>
+
+        </tr>
+        <tr>
+            <td>CO2 Consumption</td>
+            <td>13.3</td>
+            <td>3.5</td>
+            <td>3.3</td>
+
+        </tr>
+    </table>
+    <p><b>These are the values for those who eat tofu:</b></p>
+    <table id= "tableOfAlts" border=”1” cellspacing=”2” cellpadding=”5” class="table">
+        <tr>
+            <td>    </td>
+            <td>Tofu</td>
+        </tr>
+        <tr>
+            <td>Water Usage</td>
+            <td>111</td>
+        </tr>
+        <tr>
+            <td>CO2 COnsumption</td>
+            <td>1.1</td>
+        </tr>
+    </table>
+
+    <p><b>Meat vs Tofu</b></p>
+    <p>Both foods contain valuable proteins. Tofu contains 7 to 15% of easily digestible protein components, including all eight essential amino acids. The protein content of meat is 15 to 40%</p>
+    <ul>
+        <li>Tofu contains less fat and therefore, your caloric consumption is fewer than when you eat meat.</li>
+        <li>Meat has a significantly higher concentration of B vitamins. Tofu contains large amounts of minerals, above all magnesium and calcium.</li>
+        <li>Tofu is almost cholesterol-free. On the other hand, depending on the type of meat, 1 serving meat (4 oz.) contains 70 to 400 mg of cholesterol.</li>
+        <li>The production of meat is much more resource-intensive and has a much greater impact on the environment and climate than the cultivation of soybeans.</li>
+        <li>Meat has its own characteristic taste. Tofu, on the other hand, tastes rather bland.</li>
+    </ul>
+    <a href="#page3">Return to Calculator</a>
+</div>
+
 
 
 
 </body>
 </html>
+
 

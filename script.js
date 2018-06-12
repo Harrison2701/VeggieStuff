@@ -27,7 +27,7 @@ $(document).ready(function() {
 
         //Checks emails that aren't traditional
         if(email.lastIndexOf('.')>email.length-5&&email.indexOf('@')!=-1){
-                realEmail=true;
+            realEmail=true;
         }
 
         //Checks to see if email is a new one
@@ -56,7 +56,7 @@ $(document).ready(function() {
 
 function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
     //Sign-up
-    if(confirmpassword == password && realEmail == true && newEmail == true && password==''){
+    if(confirmpassword == password && realEmail == true && newEmail == true && password!=''){
         var dateThing=new Date();
         $.ajax({
             type: 'POST',
@@ -66,9 +66,9 @@ function finishSignUp(password,confirmpassword,email,realEmail,newEmail){
                 "password": password,
                 "information":{
                     "theArray": [],
-                    "startingMonth":d.getMonth(),
-                    "startingYear": d.getFullYear(),
-                    "startingDate":d.getDate(),
+                    "startingMonth":dateThing.getMonth(),
+                    "startingYear": dateThing.getFullYear(),
+                    "startingDate":dateThing.getDate(),
                 }
             }),
             dataType: 'json',
@@ -128,8 +128,12 @@ function LoginUser() {
             if(data.password==passwordToGet){
                 correctInformation=true;
                 document.location.href = '#page4';
-                currentUser=data;
-                currentUserId = data._id;
+                console.log(data.information.theArray);
+                makeGlobal(data);
+                console.log(currentUser);
+                startingMonth=currentUser.information.startingMonth;
+                startingYear=currentUser.information.startingYear;
+                startingDate=currentUser.information.startingDate;
             }
         },
         error: function () {
@@ -139,7 +143,14 @@ function LoginUser() {
     });
 }
 
+function makeGlobal(x){
+    currentUser=x;
+}
 
+function deleteMeat(){
+    document.getElementById("deleteMeat").innerHTML = " "
+    document.getElementById("listMeat").innerHTML=" "
+}
 
 function addMeat(){
     var meat = document.getElementById("selectBox1").value;
@@ -156,6 +167,9 @@ function addMeat(){
     if(meat == "Beef"){
         meatsBeef.push({"meat":meat,"total":amounts})
     }
+
+    document.getElementById("deleteMeat").innerHTML = " "
+    document.getElementById("deleteMeat").innerHTML += '<button id="deleteList" onclick="deleteMeat()">Delete</button>'
 }
 
 var meatsPork = [];
@@ -182,9 +196,11 @@ function calculateMeat(){
     var porkLB = pork/16;
 
     document.location.href = "#page4";
-    listConsumptions(pork,beef,poultry);
+    listConsumptions(porkLB,beefLB,poultryLB);
 
     console.log(porkLB)
+
+
 }
 
 function listConsumptions(x,y,z) {
@@ -198,17 +214,17 @@ function listConsumptions(x,y,z) {
     var co2Poultry = z * 3.5;
     var totalCO2 = co2Beef + co2Pork + co2Poultry;
 
-    document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + totalWater + " and your total CO2 consumptions is " + totalCO2 + '</p>';
+    document.getElementById("listFoodEaten").innerHTML += '<p>' + "Your total water consumption is " + Math.round(totalWater) + " gal and your total CO2 consumptions is " + Math.round(totalCO2) + ' lbs</p>';
 
-   /* var today= new Date();
-    var day= today.getDate();
-    var month= today.getMonth()+1;
-    var year= today.getFullYear();*/
+    /* var today= new Date();
+     var day= today.getDate();
+     var month= today.getMonth()+1;
+     var year= today.getFullYear();*/
 
 
 
-        var obj = {"totalWater":totalWater, "totalCO2":totalCO2, "date":new Date()};
-        theArray.push(obj);
+    var obj = {"totalWater":totalWater, "totalCO2":totalCO2, "date":new Date()};
+    theArray.push(obj);
 
 
 
@@ -220,9 +236,10 @@ function listConsumptions(x,y,z) {
             "email": email,
             "password": password,
             "information":{
-                waterConsumed:[],
-                co2Consumed:[],
-                dateAccountWasCreate:new Date()
+                "theArray":theArray,
+                "startingMonth":startingMonth,
+                "startingYear": startingYear,
+                "startingDate":startingDate,
             }
         }),
         dataType: 'json',
@@ -239,7 +256,7 @@ function listConsumptions(x,y,z) {
 }
 
 var beefAlternatives = ["Seitan Steaks","Tofu Steaks","Mushroom Steaks","Eggplant Steaks","Cauliflower Steaks","Tempeh","Vegan Meat","Lentils","Beans"];
-var poultryAlternatives = ["Tofu Chicken","Jackfruit Chicken","Chickpea Cutlets","Seitan Cutlets","Vegetable Cutlets","Tofu Nuggets","Cauliflower Wings"]
+var poultryAlternatives = ["Tofu Chicken","Jackfruit Chicken","Chickpea Cutlets","Jackfruit Chicken","Seitan Cutlets","Vegetable Cutlets","Jackfruit Chicken","Tofu Nuggets","Cauliflower Wings"]
 var porkAlternatives = ["Sun-dried Tomatoes","Fried Shallots","Roasted Mushrooms","Tempeh Bacon","Textured Soy Protein","Tofu","Beans"]
 var alternative = ""
 
@@ -262,6 +279,44 @@ function displayAlternatives(){
     }
 }
 
+
+function theRealCalculate(x){
+    var theDateObject= new Date();
+    var theWater=0;
+    var theCO2=0;
+    console.log(currentUser.information.theArray);
+    if(x=='calcMonth') {
+        for (var i; i < currentUser.information.theArray.length; i++) {
+            if (currentUser.information.theArray[i].date.getMonth() == theDateObject.getMonth&&currentUser.information.theArray[i].date.getFullYear() == theDateObject.getFullYear) {
+                theWater += currentUser.information.theArray[i].totalWater;
+                theCO2 += currentUser.information.theArray[i].totalCO2;
+            }
+        }
+    }
+
+    if(x=='calcYear') {
+        for (var j; j < currentUser.information.theArray.length; j++) {
+            if (currentUser.information.theArray[j].date.getFullYear() == theDateObject.getFullYear) {
+                theWater += currentUser.information.theArray[j].totalWater;
+                theCO2 += currentUser.information.theArray[j].totalCO2;
+            }
+        }
+    }
+    if(x=='calcEverything') {
+        for (var k; k < currentUser.information.theArray.length; k++) {
+            theWater += currentUser.information.theArray[k].totalWater;
+            theCO2 += currentUser.information.theArray[k].totalCO2;
+        }
+    }
+    document.getElementById("waterGraph").height = theWater/100;
+    document.getElementById("CO2Graph").height = theCO2/100;
+    console.log(theWater);
+}
+
+
+
+
+
 function showPassword() {
     var x = document.getElementById("loginPassword");
     if (x.type == "password") {
@@ -271,54 +326,7 @@ function showPassword() {
     }
 }
 
-/*post more data to a user
 
-
-
-    $.ajax({
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({
-            "email": email,
-            "password": password,
-            "information":{
-                userId:currentUserId,
-                dataToPost:"dataToPost",
-                datePosted:new Date()
-            }
-        }),
-        dataType: 'json',
-        success: function (data) {
-            console.log(data);
-        },
-        error: function () {
-            alert("failed");
-        },
-        url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users'
-
-    });
-
-
-//get info about a user
-
-$.ajax({
-    type: 'GET',
-    dataType: 'json',
-    success: function (data) {
-        console.log(data.information);
-        if(data.password==passwordToGet){
-            correctInformation=true;
-            document.location.href = '#page4';
-            currentUser=data;
-            //currentUserId = data._id;
-        }
-    },
-    error: function () {
-        alert("failed");
-    },
-    url: 'https://slkidsbackend.herokuapp.com/VeggieGang/api/users/' + currentUserId
-});
-*/
 
 var domains = [
     /* Default domains included */
